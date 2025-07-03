@@ -35,11 +35,30 @@ variables <- c("gst", "rof", "swe", "snd", "alb")
 scenarios <- c("ssp126", "ssp245", "ssp585")
 
 ui <- fluidPage(
-  titlePanel("Snow Scenarios Explorer"),
+      # Logos with links
+  fluidRow(
+    style = "position: fixed; bottom: 10px; left: 10px; z-index: 1000; display: flex; gap: 15px; align-items: center;",
+    tags$a(href = "https://www.unesco.org", target = "_blank",
+           tags$img(src = "unesco.png", height = "30px")),
+    tags$a(href = "https://mountainfutures.ch/", target = "_blank",
+           tags$img(src = "mf.png", height = "80px")),
+    tags$a(href = "https://www.thegef.org/", target = "_blank",
+           tags$img(src = "gef.png", height = "90px"))
+  ),
+
+  titlePanel("21st Century Snow Climate Scenarios for Central Asia: Catchments"),
   sidebarLayout(
     sidebarPanel(
       selectInput("variable", "Select Variable:", choices = variables, selected = "swe"),
-      selectInput("scenario", "Select Scenario:", choices = scenarios, selected = "ssp126")
+      selectInput("scenario", "Select Scenario:", choices = scenarios, selected = "ssp126"),
+        wellPanel(
+    tags$p(tags$b("Basin Average Anomaly :")),
+tags$p("This app presents 21st-century snow climate scenarios for Central Asia using the TopoCLIM model chain (Fiddes et al., 2022). 
+It integrates terrain clustering, high-resolution climate downscaling, and bias-corrected future climate projections (CMIP6 SSP2-4.5 & SSP5-8.5).
+ The FSM snow model then simulates key snow variables—such as snow water equivalent, depth, and runoff—across different time periods (2000-2020, 2040-2060, 2080-2100). 
+ This approach captures complex mountain influences to assess climate change impacts on snow conditions in the region.")
+
+  )
     ),
     mainPanel(
       leafletOutput("mapPlot", height = "800px")
