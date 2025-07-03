@@ -53,8 +53,11 @@ ui <- fluidPage(
       selectInput("scenario", "Select Scenario:", choices = scenarios, selected = "ssp126"),
         wellPanel(
     tags$p(tags$b("Basin Average Anomaly :")),
-tags$p("This app presents 21st-century snow climate scenarios for Central Asia using the TopoCLIM model chain (Fiddes et al., 2022). 
-It integrates terrain clustering, high-resolution climate downscaling, and bias-corrected future climate projections (CMIP6 SSP2-4.5 & SSP5-8.5).
+tags$p("This app presents 21st-century snow climate scenarios for Central Asia. It shows anomaly maps for far future aggregated by catchment in HMCA for
+3 scenarios SSP1-2.6, SSP2-4.5, SSP5-8.5. Anomalies computed as far future period as (2081-2100) from historical period (1981-2010).
+Variable shown are ground surface temperature (GST), runoff (ROF), snow water equivalent (SWE), snow height (snd), albedo (alb). 
+
+The model uses the TopoCLIM model chain (Fiddes et al., 2022) which integrates terrain clustering, high-resolution climate downscaling, and bias-corrected future climate projections (CMIP6 SSP2-4.5 & SSP5-8.5).
  The FSM snow model then simulates key snow variables—such as snow water equivalent, depth, and runoff—across different time periods (2000-2020, 2040-2060, 2080-2100). 
  This approach captures complex mountain influences to assess climate change impacts on snow conditions in the region.")
 
